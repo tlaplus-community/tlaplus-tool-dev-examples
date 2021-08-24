@@ -2,6 +2,8 @@
 
 ## How to build & run this example
 
+NOTE: this example will not work on linux until the tree-sitter pip package is updated to include [this fix](https://github.com/tree-sitter/py-tree-sitter/commit/204e41f1f1e316792dbb99b46fef6b7edec6862b).
+
 1. Check out this repo with the `--recurse submodules` parameter, or if you've already cloned the repo run `git submodule init` and `git submodule update`
 1. Install [Python 3](https://www.python.org/downloads/)
 1. Ensure you have a C/C++ compiler installed
