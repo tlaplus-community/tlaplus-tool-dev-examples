@@ -1,0 +1,45 @@
+name: Test Examples
+on:
+  push:
+    branches:
+      - main
+  pull_request:
+    branches:
+      - main
+jobs:
+  check-examples:
+    runs-on: ${{ matrix.os }}
+    strategy:
+      matrix:
+        os: [windows-latest, ubuntu-latest, macos-latest]
+      fail-fast: false
+    steps:
+      - name: Clone repo
+        uses: actions/checkout@v2
+        with:
+          submodules: recursive
+      - name: Install Python
+        uses: actions/setup-python@v2
+        with:
+          python-version: '3.x'
+      - name: Check Python Example
+        working-directory: tree-sitter/python
+        run: |
+          pip install -r requirements.txt
+          python main.py
+      - name: Install Rust
+        uses: actions-rs/toolchain@v1
+        with:
+          toolchain: stable
+      - name: Check Rust Example
+        uses: actions-rs/cargo@v1
+        working-directory: tree-sitter/rust
+        with:
+          command: run
+      - name: Install Node.js
+        uses: actions/setup-node@v2
+      - name: Check TypeScript Example 
+        working-directory: tree-sitter/typescript
+        run: |
+          npm install
+          ts-node app.ts
