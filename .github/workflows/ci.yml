@@ -32,10 +32,8 @@ jobs:
         with:
           toolchain: stable
       - name: Check Rust Example
-        uses: actions-rs/cargo@v1
         working-directory: tree-sitter/rust
-        with:
-          command: run
+        run: cargo run
       - name: Install Node.js
         uses: actions/setup-node@v2
       - name: Check TypeScript Example 
