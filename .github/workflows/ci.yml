@@ -40,4 +40,4 @@ jobs:
         working-directory: tree-sitter/typescript
         run: |
           npm install
-          ts-node app.ts
+          node_modules/.bin/ts-node app.ts
