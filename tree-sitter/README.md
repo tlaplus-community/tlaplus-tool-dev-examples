@@ -4,6 +4,6 @@ Examples are provided for [python](python), [rust](rust), and [typescript](types
 
 ## Other Methods
 In addition to the examples here, there are a number of additional methods available for consuming & using the parser in a project of your own:
- * Use the grammar as a WASM file with the [web-tree-sitter](https://www.npmjs.com/package/web-tree-sitter) module
+ * Use the grammar as a WASM file with the [web-tree-sitter](https://www.npmjs.com/package/web-tree-sitter) module; this is currently demonstrated with [the playground](https://github.com/tlaplus-community/tlaplus-community.github.io/tree/main/tree-sitter-tlaplus).
  * Use the [tree-sitter CLI](https://github.com/tree-sitter/tree-sitter/blob/master/cli/README.md) to directly parse or highlight files from the command line (this is mostly used for development & testing).
 
