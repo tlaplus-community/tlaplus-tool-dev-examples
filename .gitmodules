@@ -1,0 +1,3 @@
+[submodule "tree-sitter/python/tree-sitter-tlaplus"]
+	path = tree-sitter/python/tree-sitter-tlaplus
+	url = https://github.com/tlaplus-community/tree-sitter-tlaplus
