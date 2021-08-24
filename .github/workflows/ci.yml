@@ -28,9 +28,9 @@ jobs:
           toolchain: stable
       - name: Install Node.js
         uses: actions/setup-node@v2
+        # Will not work on Ubuntu until tree-sitter pip package is updated to include this fix:
+        # https://github.com/tree-sitter/py-tree-sitter/commit/204e41f1f1e316792dbb99b46fef6b7edec6862b
       - name: Check Python Example
-        // Will not work on Ubuntu until tree-sitter pip package is updated to include fix
-        // https://github.com/tree-sitter/py-tree-sitter/commit/204e41f1f1e316792dbb99b46fef6b7edec6862b
         if: matrix.os != 'ubuntu-latest'
         working-directory: tree-sitter/python
         run: |
