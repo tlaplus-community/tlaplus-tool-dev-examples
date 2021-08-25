@@ -28,14 +28,20 @@ jobs:
           toolchain: stable
       - name: Install Node.js
         uses: actions/setup-node@v2
-        # Will not work on Ubuntu until tree-sitter pip package is updated to include this fix:
+        # Workaround for issue fixed in this commit:
         # https://github.com/tree-sitter/py-tree-sitter/commit/204e41f1f1e316792dbb99b46fef6b7edec6862b
+      - name: Uninstall libc++ on Ubuntu
+        if: matrix.os == 'ubuntu-latest'
+        run: DEBIAN_FRONTEND=noninteractive sudo apt-get purge -y 'libc++*'
       - name: Check Python Example
-        if: always() && !cancelled() && matrix.os != 'ubuntu-latest'
+        if: always() && !cancelled()
         working-directory: tree-sitter/python
         run: |
           pip install -r requirements.txt
           python main.py
+      - name: Reinstall libc++ on Ubuntu
+        if: always() && !cancelled() && matrix.os == 'ubuntu-latest'
+        run: DEBIAN_FRONTEND=noninteractive sudo apt-get install -y libc++-dev libc++abi-dev
       - name: Check Rust Example
         if: always() && !cancelled()
         working-directory: tree-sitter/rust
