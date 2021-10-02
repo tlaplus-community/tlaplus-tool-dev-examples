@@ -6,7 +6,7 @@ NOTE: this example will not work on linux until the tree-sitter pip package is u
 As a workaround, you can uninstall libc++ before building & running the example (as is done in this repo's CI).
 You can discuss & check the status of the release in [this](https://github.com/tree-sitter/py-tree-sitter/issues/69) issue.
 
-1. Check out this repo with the `--recurse submodules` parameter, or if you've already cloned the repo run `git submodule init` and `git submodule update`
+1. Check out this repo with the `--recurse-submodules` parameter, or if you've already cloned the repo run `git submodule init` and `git submodule update`
 1. Install [Python 3](https://www.python.org/downloads/)
 1. Ensure you have a C/C++ compiler installed
 1. Run `pip install -r requirements.txt`
